@@ -14,15 +14,21 @@ class Word:
         else:
             return False
 
-    def show_letter(self, guessed_letter):
-        i = 0
-        for letter in self.secret_word:
-            if letter == guessed_letter:
-                self.which_letters_guessed[i] = True
-            i += 1
+    def evaluate(self, guess):
+        if len(guess) is 1:
+            i = 0
+            for letter in self.secret_word:
+                if letter == guess:
+                    self.which_letters_guessed[i] = True
+                i += 1
+        else:
+            if guess == self.secret_word:
+                i = 0
+                for letter in self.which_letters_guessed:
+                    self.which_letters_guessed[i] = True
+                    i += 1
 
     def print(self):
-        print(self.which_letters_guessed)
         i = 0
         for letter in self.secret_word:
             if self.which_letters_guessed[i] is True:
