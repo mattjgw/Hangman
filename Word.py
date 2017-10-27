@@ -50,7 +50,6 @@ class Word:
         return True
 
     def drawMan(self):
-        self.strikes = 10
         if self.strikes is 0:
             return
         elif self.strikes >= 1:
