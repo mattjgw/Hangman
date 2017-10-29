@@ -1,6 +1,9 @@
 from Word import Word
+import random
 
-word = Word("apple")
+words = ["apple", "peach", "banana", "pumpkin", "strawberry", "melon", "orange"]
+
+word = Word(words[random.randrange(0, 7)])
 complete = False
 print("Hello! Welcome to Hangman!\nPlease guess a letter or a word:")
 word.print()
