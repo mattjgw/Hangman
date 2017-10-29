@@ -47,7 +47,11 @@ class Word:
         for letter in self.which_letters_guessed:
             if letter is False:
                 return False
+        print("\nCongratulations! You have deduced the word")
         return True
+        if self.strikes >= 4:
+            print("\nOh no! You've hung the man. Better luck next time")
+            return True
 
     def drawMan(self):
         if self.strikes is 0:
@@ -64,8 +68,8 @@ class Word:
                     print(" ___|___    |")
                     print("    |       |")
                     if self.strikes >= 4:
-                        print("   /  \\     |")
-                        print("  /    \\    |")
+                        print("   / \\      |")
+                        print("  /   \\     |")
 
 
 
