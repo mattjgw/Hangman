@@ -6,7 +6,8 @@ class Word:
 
     def __init__(self, chosen_word="apple"):
         self.secret_word = chosen_word
-        for _ in self.secret_word:
+        self.which_letters_guessed = []
+        for i in self.secret_word:
             self.which_letters_guessed.append(False)
         self.strikes = 0
 
@@ -44,13 +45,14 @@ class Word:
             i += 1
 
     def is_complete(self):
+        if self.strikes >= 4:
+            print("\nOh no! You've hung the man. Better luck next time")
+            return True
         for letter in self.which_letters_guessed:
             if letter is False:
                 return False
-        print("\nCongratulations! You have deduced the word")
-        return True
-        if self.strikes >= 4:
-            print("\nOh no! You've hung the man. Better luck next time")
+        else:
+            print("\nCongratulations! You have deduced the word")
             return True
 
     def drawMan(self):
